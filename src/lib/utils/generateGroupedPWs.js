@@ -19,13 +19,9 @@ export default function generateGroupedPWs() {
   const pws = Array.from({ length })
     .map((_, i) => getPW(i))
     .sort(pwSorter);
-    console.log("😊😊 pws", pws)
   const groupedPWs = groupBy(pws, (pw) => pw.name[0]);
-  console.log("😊😊 groupedPWs", groupedPWs)
   const groupCounts = Object.values(groupedPWs).map((pws) => pws.length);
-  console.log("😊😊 groupCounts", groupCounts)
   const groups = Object.keys(groupedPWs);
-  console.log("😊😊 groups", groups)
 
   function pw(index = 0) {
     return {

@@ -3,9 +3,6 @@
 	let { handleDelete, handleClickPassword, handleClickCopyPW } = $props;
 	import generateGroupedPWs from '$lib/utils/generateGroupedPWs';
 	const { pws, groups, groupCounts } = generateGroupedPWs();
-	console.log('😊😊 pws', pws);
-	console.log('😊😊 groups', groups);
-	console.log('😊😊 groupCounts', groupCounts);
 	let innerHeight = window.innerHeight;
 	let availableHeight = innerHeight - 67;
 	let groupCount = groups.length;
@@ -14,25 +11,18 @@
 </script>
 
 <div id="passwords">
-	<h2>Passwords Component</h2>
-	<!-- <div>
-      <GroupedVirtuoso
-        ref={virtuoso}
-        groupCounts={groupCounts}
-        groupContent={(index) => {
-          return (
-            <div id='groupContent'>
-              {groups[index]}
-            </div>
-          );
-        }}
-        itemContent={(index) => {
-          return (
-            <details>
-              <summary>{pws[index].name}</summary>
+  <div id='groupContent'>
+    {#each groups as group}
+    {group}
+    {/each}
+  </div>
+  <div>
+    {#each pws as pw, index}
+    <details>
+              <summary>{pw.name}</summary>
               <table>
                 <tbody>
-              {pws[index].url && (
+              {#if pw.url}
                 <tr>
                   <th>
                     Url:
@@ -42,56 +32,54 @@
                       href={pws[index].url}
                       target='_blank'
                       rel='noreferrer'>
-                      {pws[index].url}
+                      {pw.url}
                     </a>
                   </td>
                 </tr>                        
-              )}
-              {pws[index].username && (
+              {/if}
+              {#if pw.username}
                 <tr>
                   <th>Username:</th>
-                  <td>{pws[index].username}</td>
+                  <td>{pw.username}</td>
                 </tr>
-              )}
-              {pws[index].password && (
+              {/if}
+              {#if pw.password}
                 <tr>
                   <th> Password:</th>
                   <td
-                    onClick={() => handleClickPassword(index)}
+                    on:click={() => handleClickPassword(index)}
                     >
-                    {pws[index].password}
+                    {pw.password}
                   </td>
                 </tr>
-              )}
-              {pws[index].notes && (
+              {/if}
+              {#if pw.notes}
                 <tr>
                   <th>Notes:</th>
                   <td>
                     {pws[index].notes}</td>
                 </tr>
-              )}
+              {/if}
                 </tbody>
               </table>
               
               <footer>
-                <button onClick={() => navigate('/pages/editpassword/' + index)}
+                <button on:click={() => navigate('/pages/editpassword/' + index)}
                 >
                   Edit
                 </button>
-                <button onClick={() => handleDelete(index)}>
+                <button on:click={() => handleDelete(index)}>
                   Delete
                 </button>
                 <button
-                  onClick={() => handleClickCopyPW(index)}>
+                  on:click={() => handleClickCopyPW(index)}>
                   Copy
                 </button>
               </footer>
             </details>
-          );
-        }}
-      />
-    </div>
-  <ul>
+    {/each}
+  </div>
+  <!-- <ul>
     {groupCounts
       .reduce(
         ({ firstItemsIndexes, offset }, count) => {
@@ -122,7 +110,7 @@
 
 <!-- <stlye>
   ul {
-    lineHeight: lineHeight,
-    fontSize: fontSize,
+    line-height: lineHeight;
+    font-size: fontSize;
   }
 </stlye> -->
