@@ -1,1 +1,0 @@
-<h2>Temporary File</h2>

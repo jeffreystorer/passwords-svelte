@@ -630,7 +630,7 @@
 				}
 				/* big desktop up 1800px */
 				@media screen and (min-with: 112.5em) {
-				width: 40;
+				width: 40%;
 				}
 			}
 			
@@ -642,7 +642,7 @@
 				padding-left: 0.5em;
 			}
 			
-			#groupContent {
+			.groupName {
 				color: var(--color-black);
 				font-size: var(--step--1);
 				font-weight: bold;
@@ -788,6 +788,6 @@
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div id="fauxBody" style="display: contents">%sveltekit.body%</div>
+		<div id="root">%sveltekit.body%</div>
 	</body>
 </html>

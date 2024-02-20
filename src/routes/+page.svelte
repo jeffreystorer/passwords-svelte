@@ -1,5 +1,5 @@
 <script>
-    import { browser } from '$app/environment'
+    //TODO Add required
     import { goto } from '$app/navigation'
     import { initializeApp } from 'firebase/app';
     import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
@@ -12,13 +12,12 @@
         const form = e.target;
         const formData = new FormData(form);
         const formJson = Object.fromEntries(formData.entries());
-        const email = formJson.email;
-        const password = formJson.password;
+        const email = 'pm@storer.net' //formJson.email;
+        const password = 'Pasit6347boled!'  //formJson.password;
         signInWithEmailAndPassword(auth, email, password)
         .then(userCredential => {
             const user = userCredential.user;
             $userId = user.uid;
-            console.log("😊😊 $userId", $userId);
             goto('/passwords');
         })
         .catch(error => {
@@ -41,7 +40,6 @@
         autoComplete='email'
         type='email'
         name='email'
-        required
         />
     </label>
     <label>
@@ -50,7 +48,6 @@
         autoComplete='current-password'
         type='password'
         name='password'
-        required
         />
     </label>
     <button class={'not-stacked'} type='submit'>

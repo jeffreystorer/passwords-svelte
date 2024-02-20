@@ -1,23 +1,24 @@
 <script>
-	import { goto } from '$app/navigation';
 	let { handleDelete, handleClickPassword, handleClickCopyPW } = $props;
 	import generateGroupedPWs from '$lib/utils/generateGroupedPWs';
-	const { pws, groups, groupCounts } = generateGroupedPWs();
+	const { pws, groupedPWs, groups } = generateGroupedPWs();
 	let innerHeight = window.innerHeight;
 	let availableHeight = innerHeight - 67;
 	let groupCount = groups.length;
 	let lineHeight = Math.floor(availableHeight / groupCount).toString() + 'px';
 	let fontSize = Math.floor(((availableHeight / groupCount) * 2) / 3).toString() + 'px';
+  $effect(() => {
+    document.getElementById('groupList').style.lineHeight = lineHeight;
+    document.getElementById('groupList').style.fontSize = fontSize; 
+  })
 </script>
 
 <div id="passwords">
-  <div id='groupContent'>
-    {#each groups as group}
-    {group}
-    {/each}
-  </div>
   <div>
-    {#each pws as pw, index}
+    {#each Object.keys(groupedPWs) as group}
+    <div id={group} class='groupName'>
+    {group}
+    {#each groupedPWs[group] as pw, index}
     <details>
               <summary>{pw.name}</summary>
               <table>
@@ -76,41 +77,14 @@
                   Copy
                 </button>
               </footer>
-            </details>
+    </details>
+    {/each}
+    </div>
     {/each}
   </div>
-  <!-- <ul>
-    {groupCounts
-      .reduce(
-        ({ firstItemsIndexes, offset }, count) => {
-          return {
-            firstItemsIndexes: [...firstItemsIndexes, offset],
-            offset: offset + count,
-          };
-        },
-        { firstItemsIndexes: [], offset: 0 }
-      )
-      .firstItemsIndexes.map((itemIndex, index) => (
-        <li key={index}>
-          {/*eslint-disable-next-line*/}
-          <a
-            href='#'
-            onclick={(e) => {
-              e.preventDefault();
-              virtuoso.current.scrollToIndex({
-                index: itemIndex,
-              });
-            }}>
-            {groups[index]}
-          </a>
-        </li>
-      ))}
-  </ul> -->
+  <ul id='groupList'>
+    {#each groups as group}
+      <li><a href='*' on:click={(e) => {e.preventDefault(); document.getElementById(group).scrollIntoView(true)}}>{group}</a></li>
+    {/each}
+  </ul>
 </div>
-
-<!-- <stlye>
-  ul {
-    line-height: lineHeight;
-    font-size: fontSize;
-  }
-</stlye> -->

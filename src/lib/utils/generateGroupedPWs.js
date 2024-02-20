@@ -20,7 +20,7 @@ export default function generateGroupedPWs() {
     .map((_, i) => getPW(i))
     .sort(pwSorter);
   const groupedPWs = groupBy(pws, (pw) => pw.name[0]);
-  const groupCounts = Object.values(groupedPWs).map((pws) => pws.length);
+  //const groupCounts = Object.values(groupedPWs).map((pws) => pws.length);
   const groups = Object.keys(groupedPWs);
 
   function pw(index = 0) {
@@ -42,5 +42,5 @@ export default function generateGroupedPWs() {
     return generated[index];
   }
 
-  return { pws, groupCounts, groups };
+  return { pws, groupedPWs, groups };
 }

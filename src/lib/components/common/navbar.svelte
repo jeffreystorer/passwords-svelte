@@ -14,11 +14,11 @@
   const routes = [
     {
       path: '/passwords',
-      title: 'Passwords'
+      title: 'PWs'
     },
     {
       path: '/creditcards',
-      title: 'Credit Cards'
+      title: 'CCs'
     },
   ];
 </script>
