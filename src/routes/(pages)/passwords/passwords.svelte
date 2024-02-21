@@ -13,7 +13,7 @@
   })
 </script>
 
-<div id="passwords">
+<section>
   <div>
     {#each Object.keys(groupedPWs) as group}
     <div id={group} class='groupName'>
@@ -87,4 +87,66 @@
       <li><a href='*' on:click={(e) => {e.preventDefault(); document.getElementById(group).scrollIntoView(true)}}>{group}</a></li>
     {/each}
   </ul>
-</div>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 67);
+    margin: 0 auto;
+    justify-content: center;
+    /* phone only 599px */
+    @media screen and (max-width: 37.4375em) {
+    width: 100%;
+    }
+    /* tablet portrait up 600px */
+    @media screen and (min-width: 37.5em) {
+    width: 50%;
+    }
+    /* table landscape up 900px */
+    @media screen and (min-width: 56.25em) {
+    width: 40%;
+    }
+    /* desktop up 1200px */
+    @media screen and (min-width: 75em) {
+    width: 40%;
+    }
+    /* big desktop up 1800px */
+    @media screen and (min-with: 112.5em) {
+    width: 40%;
+    }
+  }
+
+  section > div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: calc(100vh - 67);
+    padding-left: 0.5em;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;      
+    height: calc(100vh -67);
+    list-style: none;
+    margin: 0 0.5em;
+  }
+
+  ul > li,
+  ul > li > a {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .groupName {
+    color: var(--color-black);
+    font-size: var(--step--1);
+    font-weight: bold;
+    background-color: var(--background-white);
+    text-align: left;
+    min-width: 21.875em;
+  }
+
+</style>

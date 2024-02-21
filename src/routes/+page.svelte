@@ -27,12 +27,11 @@
         });
         };
 </script>
-
 <header>
     <h1>Storer PM</h1>
 </header>
 <main>
-<form id='sign-in' onsubmit={onsubmit}>
+<form onsubmit={onsubmit}>
     <fieldset>
     <label>
         Email:
@@ -56,3 +55,31 @@
     </fieldset>
 </form>
 </main>
+
+<style>
+    form {
+        font-size: var(--step-0);
+        margin-top: 2em;
+    }
+
+    form fieldset {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        width: 100%;
+    }
+
+    form label {
+        padding-right: 5em;
+        width: fit-content;
+    }
+
+    form label:first-of-type {
+        padding-left: 1.7em;
+    }
+
+    form input {
+        text-align: center;
+    }
+</style>
