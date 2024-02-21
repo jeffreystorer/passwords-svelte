@@ -93,7 +93,7 @@
   section {
     display: flex;
     flex-direction: row;
-    height: calc(100vh - 67);
+    height: calc(100vh - 67) !important;
     margin: 0 auto;
     justify-content: center;
     /* phone only 599px */
@@ -122,14 +122,14 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    height: calc(100vh - 67);
+    height: calc(100vh - 67) !important;
     padding-left: 0.5em;
   }
 
   ul {
     display: flex;
-    flex-direction: column;      
-    height: calc(100vh -67);
+    flex-direction: column; 
+    height: calc(100vh - 67) !important;
     list-style: none;
     margin: 0 0.5em;
   }
