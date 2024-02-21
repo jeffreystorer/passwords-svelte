@@ -122,14 +122,13 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    height: calc(100vh - 67) !important;
     padding-left: 0.5em;
   }
 
   ul {
     display: flex;
     flex-direction: column; 
-    height: calc(100vh - 67) !important;
+    height: calc(100vh - 67);
     list-style: none;
     margin: 0 0.5em;
   }

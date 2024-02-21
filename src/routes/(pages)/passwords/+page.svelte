@@ -48,9 +48,7 @@
   };
 </script>
 
-  {#if loading}
-   <h2>Loading . . . </h2>
-  {:else}
+  {#if !loading}
     <Passwords
       handleDelete={handleDelete}
       handleClickPassword={handleClickPassword}

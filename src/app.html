@@ -17,674 +17,461 @@
 		<title>Storer PM</title>
 		<style>
 			body {
-    --x: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e");
-    --logo: url("%sveltekit.assets%/android-chrome-512x512.png");
-    --background-blue: #00365f;
-    --background-black: #5a5a5a;
-    --background-button: #cccccc;
-    --background-button-primary: #0d63fd;
-    --background-button-secondary: #6c757d;
-    --background-secondary: #f9f9fb;
-    --background-white: #ffffff;
-    --border-hairline: 0.0625em solid #0004;
-    --borderRadius-outer: 0.5em;
-    --boxBorder: 0.05em solid var(--color-link-active);
-    --color-black: #212529;
-    --color-border-primary: #cdcdcd;
-    --color-link-active: #3378ac;
-    --color-link-hover: #c00;
-    --color-modal-fader: #b3b3b3cc;
-    --color-white: #ffffff;
-    --color-table-stripe: rgb(222, 226, 230);
-    --font-serif: "Times New Roman", Times, serif;
-    /* --font-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
-    --font-sans-serif: sans-serif;
-    --pad: clamp(0.5em, min(2vw, 4vh), 4em);
-    --shadow-chrome: 0 0.25em 1em 0.25em #0003;
-    --page-width: 95%;
-
-    /* @link https://utopia.fyi/type/calculator?c=416,16,1.067,1920,24,1.067,6,10,900-1200-1800-600&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-
-    --step--10: clamp(0.52rem, calc(0.45rem + 0.28vw), 0.78rem);
-    --step--9: clamp(0.56rem, calc(0.48rem + 0.3vw), 0.84rem);
-    --step--8: clamp(0.6rem, calc(0.51rem + 0.32vw), 0.89rem);
-    --step--7: clamp(0.64rem, calc(0.55rem + 0.34vw), 0.95rem);
-    --step--6: clamp(0.68rem, calc(0.58rem + 0.36vw), 1.02rem);
-    --step--5: clamp(0.72rem, calc(0.62rem + 0.38vw), 1.08rem);
-    --step--4: clamp(0.77rem, calc(0.66rem + 0.41vw), 1.16rem);
-    --step--3: clamp(0.82rem, calc(0.71rem + 0.44vw), 1.24rem);
-    --step--2: clamp(0.88rem, calc(0.76rem + 0.47vw), 1.32rem);
-    --step--1: clamp(0.94rem, calc(0.81rem + 0.5vw), 1.41rem);
-    --step-0: clamp(1rem, calc(0.86rem + 0.53vw), 1.5rem);
-    --step-1: clamp(1.07rem, calc(0.92rem + 0.57vw), 1.6rem);
-    --step-2: clamp(1.14rem, calc(0.98rem + 0.61vw), 1.71rem);
-    --step-3: clamp(1.22rem, calc(1.05rem + 0.65vw), 1.82rem);
-    --step-4: clamp(1.3rem, calc(1.12rem + 0.69vw), 1.94rem);
-    --step-5: clamp(1.38rem, calc(1.19rem + 0.74vw), 2.07rem);
-    --step-6: clamp(1.48rem, calc(1.27rem + 0.79vw), 2.21rem);
-}
-
-/*---------------------
-        RESETS
----------------------*/
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-img,
-fieldset,
-object {
-    border: none;
-}
-
-img,
-picture,
-video,
-canvas,
-svg {
-    display: block;
-    max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-    font: inherit;
-}
-
-ul {
-    list-style-type: none;
-}
-
-button,
-label {
-    cursor: pointer;
-}
-html,
-body {
-    font-family: sans-serif;
-}
-
-body {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    isolation: isolate;
-    line-height: 1.5;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    overflow-wrap: break-word;
-}
-/*---------------------
-        AT RULES
----------------------*/
-
-/* phone only 599px */
-@media screen and (max-width: 37.4375em) {
-}
-/* tablet portrait up 600px */
-@media screen and (min-width: 37.5em) {
-}
-/* table landscape up 900px */
-@media screen and (min-width: 56.25em) {
-}
-/* desktop up 1200px */
-@media screen and (min-width: 75em) {
-}
-/* big desktop up 1800px */
-@media screen and (min-with: 112.5em) {
-}
-/*--------------------------------------
-        SELECTORS
----------------------------------------*/
-
-a p {
-    text-align: center;
-}
-
-a,
-li,
-p,
-td {
-    font-family: var(--font-sans-serif);
-    font-size: var(--step-0);
-    font-stretch: normal;
-    margin-top: 0;
-}
-
-body {
-    background-color: var(--background-white);
-    display: block;
-    font-family: var(--font-sans-serif);
-    margin: auto;
-    z-index: 1;
-}
-
-.divider {
-    border-top: 0.0625em solid var(--color-link-active);
-    color: var(--background-black);
-    display: block;
-    height: 0;
-    margin: 0 auto;
-    opacity: 1;
-    overflow-x: hidden;
-    text-align: center;
-    width: 100%;
-}
-
-
-
-button,
-a[type="button"] {
-    appearance: none;
-    background-color: var(--background-button);
-    border: 0.05em solid var(--background-button);
-    border-radius: 0.5em;
-    color: var(--color-black);
-    cursor: pointer;
-    display: inline-block;
-    font-family: var(--font-sans-serif);
-    font-size: var(--step-0);
-    font-stretch: initial;
-    font-weight: 600;
-    height: fit-content;
-    padding: 0 0.25em;
-    text-align: center;
-    text-decoration: none;
-    -webkit-appearance: none;
-}
-
-button {
-    width: fit-content;
-}
-button:hover,
-a[type="button"]:hover,
-#modal > section > footer > button:last-child:hover {
-    appearance: none;
-    background-color: var(--background-white);
-    border-radius: 0.5em;
-    color: var(--color-link-hover);
-    -webkit-appearance: none;
-}
-
-.buttons {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5em;
-    margin: 0 auto;
-    width: fit-content;
-}
-
-.buttons-stacked {
-    display: flex;
-    flex-direction: column;
-}
-
-.not-stacked {
-    margin: 0.5em auto;
-}
-
-.stacked {
-    margin: 0.25em auto 0.5em auto;
-}
-
-nav {
-    height: fit-content;
-}
-nav ul {
-    display: block;
-    background: var(--background-white);
-    height: fit-content;
-    list-style-type: none;
-    width: fit-content;
-}
-nav li {
-    display: inline-block;
-    margin: 0 0.125em;
-}
-nav a,
-nav p {
-    background-color: var(--color-white);
-    color: var(--color-black);
-    font-family: var(--font-sans-serif);
-    font-size: var(--step-2);
-    font-weight: 500;
-    line-height: 1.5em;
-    margin-top: 0;
-    outline: 0;
-    overflow-wrap: break-word;
-    padding: 0 0.25em;
-    text-align: center;
-    text-decoration: none;
-    text-size-adjust: 100%;
-}
-nav a:link,
-nav a:visited {
-    color: var(--color-black);
-}
-nav a:hover,
-nav a.inactive:hover {
-    background-color: var(--color-link-hover);
-    color: var(--color-white);
-}
-nav a.active,
-.active {
-    background: var(--color-link-active);
-    color: var(--color-white);
-}
-nav a.inactive,
-.inactive {
-    background: var(--color-white);
-    color: var(--color-black);
-}
-
-/* START MODALS  */
-/* This is the modal overlay. */
-#modal {
-    align-items: center;
-    background: var(--color-modal-fader);
-    bottom: 0;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    left: -100%;
-    opacity: 0;
-    overflow: auto;
-    padding: 0;
-    position: fixed;
-    transition: left 0s 0.5s, opacity 0.5s;
-    width: 100%;
-    z-index: 1;
-}
-
-#modal > section {
-    background: var(--background-white);
-    border: var(--border-hairline);
-    border-radius: var(--borderRadius-outer);
-    box-shadow: var(--shadow-chrome);
-    display: flex;
-    flex-direction: column;
-    left: 0%;
-    height: fit-content;
-    opacity: 1;
-    outline: 0;
-    overflow: auto;
-    padding: 0.5em 1em;
-    position: relative;
-    transition: left 0.5s;
-    width: fit-content;
-
-    /*One big thing to pay attention to is the  on the inner DIV. If you omit auto margin on the VERTICAL (a direction that normally ignores margin!) flex will chop off the top of your content and you won’t be able to scroll up to it. Grid often drops the ball on this worse which is why I favor flex here. If you’re going to use a container to center its children, I really suggest using flex with margin on an inner container. Failing to do so can really screw you over.*/
-}
-
-.add-edit > section {
-    background: var(--background-white);
-    display: flex;
-    flex-direction: column;
-    height: fit-content;
-    margin: 0 auto;
-    width: fit-content;
-}
-
-#modal > section > header {
-    border-bottom: 0.0625em solid rgb(222, 226, 230);
-    display: flex;
-    flex-direction: row;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1em 0;
-    width: 100%;
-}
-
-:is(#modal, .add-edit) section > header > h2 {
-    font-size: var(--step-0);
-    font-weight: 700;
-    margin-left: 0.5em;
-} /* This link is the X to close the modal.*/
-
-#modal section > header > h2 + a.modalClose {
-    box-sizing: content-box;
-    display: inline;
-    width: 1em;
-    height: 1em;
-    padding: 0.25em 1em;
-    color: var(--color-black);
-    background: transparent var(--x) center/1em auto no-repeat;
-    border: 0;
-    border-radius: 0.25rem;
-    opacity: 0.5;
-    position: relative;
-}
-
-.add-edit section > form {
-    display: flex;
-    max-width: 100%;
-}
-.add-edit section > form > fieldset {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    text-align: left;
-    max-width: 100%;
-}
-
-.add-edit section > form > fieldset label {
-    font-size: var(--step-0);
-}
-
-.add-edit section > form > fieldset > select {
-    font-size: var(--step-0);
-    margin: 0 auto;
-    width: 100%;
-}
-
-label > input[type="text"],
-label > input[type="email"],
-label > input[type="password"] {
-    margin-left: 0.5em;
-}
-
-:is(#modal, .add-edit)
-    section
-    > form
-    > fieldset
-    > label
-    > input[type="number"] {
-    margin-top: 0.5em;
-}
-
-.add-edit section > form > fieldset > article {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5em;
-}
-
-.add-edit > section > form {
-    margin: 0 auto;
-    width: fit-content;
-}
-
-:is(#modal, .add-edit) footer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0.75em;
-}
-
-#modal footer {
-    border-top: 0.0625em solid rgb(222, 226, 230);
-}
-
-.add-edit section > form > fieldset > footer button,
-:is(#modal, .add-edit, #itinerary-details) section > footer button {
-    align-items: flex-start;
-    display: inline-block;
-    margin: 0.25em;
-    position: relative;
-}
-
-:is(.add-edit, #itinerary-details) section > footer a,
-:is(#modal, .add-edit, #itinerary-details)
-    section
-    > footer
-    > button:first-child {
-    color: var(--color-white);
-    background-color: var(--background-button-secondary);
-    border-color: var(--background-button-secondary);
-}
-
-:is(#modal, .add-edit, #itinerary-details)
-    section
-    > footer
-    > button:last-child {
-    color: var(--color-white);
-    background-color: var(--background-button-primary);
-    border-color: var(--background-button-primary);
-}
-
-#modal.open > section {
-    left: 0;
-}
-#modal.open {
-    left: 0;
-    opacity: 1;
-    transition: left 0s, opacity 0.5s;
-}
-
-/* END CONFIRMDLETEMODAL */
-
-.active-li {
-    font-weight: 700;
-}
-a > svg {
-    background-color: var(--background-button);
-    min-height: 1.5em;
-    min-width: 1.5em;
-}
-
-.add-edit {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    margin: 0 auto;
-    width: fit-content;
-}
-
-.add-edit > section > div {
-    display: flex;
-    flex-direction: column;
-}
-
-.add-edit > section > footer > button:first-child {
-    color: var(--color-white);
-    background-color: var(--background-button-secondary);
-    border-color: var(--background-button-secondary);
-}
-
-.add-edit > section > footer > button:last-child {
-    color: var(--color-white);
-    background-color: var(--background-button-primary);
-    border-color: var(--background-button-primary);
-}
-/*. dropdown = nav > ul > li:last-of-type*/
-
-nav > ul > li:last-of-type {
-    position: relative;
-    display: inline-block;
-}
-
-/*.content = nav > ul > li:last-of-type > ul*/
-
-nav > ul > li:last-of-type > ul {
-    display: none;
-    position: absolute;
-    background-color: var(--background-button);
-    margin-left: -8.5em;
-    padding: 0.75em 1em;
-    width: 15em;
-    z-index: 2;
-}
-nav > ul > li:last-of-type:hover ul {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-nav > ul > li:last-of-type ul > li > button,
-nav > ul > li:last-of-type ul > li > a {
-    background-color: var(--background-button);
-    border: none;
-    font-size: inherit;
-    font-weight: normal;
-    text-align: left;
-}
-nav > ul > li:last-of-type ul div + li {
-    font-weight: 700;
-}
-details {
-    display: flex;
-    flex-direction: column;
-    font-weight: normal;
-    background-color: var(--background-white);
-    position: relative;
-    text-align: left;
-    width: 100%;
-}
-details table {
-    display: block;
-    margin: 0 auto;
-    table-layout: fixed;
-    width: 95%;
-}
-
-details th {
-    font-size: var(--step--1);
-    font-weight: normal;
-    text-align: right;
-    padding-right: 0.5em;
-    vertical-align: top;
-}
-
-details td {
-    font-size: var(--step--1);
-    font-weight: 700;
-    overflow: wrap;
-    padding-right: 0.5em;
-    text-align: left;
-    vertical-align: top;
-    word-break: break-all;
-}
-
-details > summary {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    height: fit-content;
-    width: 100%;
-    padding: 0.25em 0.75em;
-    font-size: var(--step-0);
-    font-weight: normal;
-    color: #212529;
-    text-align: left;
-    background-color: #fff;
-    border: 0;
-    border-radius: 0;
-    overflow-anchor: none;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
-    border-radius 0.15s ease;
-}
-
-details > summary::-webkit-details-marker {
-    display: none;
-}
-details > summary::after {
-    width: 1.25em;
-    height: 1.25em;
-    content: "";
-    margin-left: auto;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-size: 1.25em;
-    transition: transform 0.2s ease-in-out;
-}
-details[open] > summary:after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-    transform: rotate(-180deg);
-}
-details[open] > summary {
-    color: #0c63e4;
-    background-color: #e7f1ff;
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
-}
-details > summary:hover {
-    z-index: 2;
-}
-
-details > footer {
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-    justify-content: flex-end;
-    border-top: 1px solid #dee2e6;
-    border-bottom-right-radius: calc(0.3em - 1px);
-    border-bottom-left-radius: calc(0.3em - 1px);
-    border-radius: 0;
-}
-
-details button:last-of-type {
-    color: var(--color-white);
-    background-color: var(--background-button-primary);
-    border-color: var(--background-button-primary);
-}
-
-details > footer > * {
-    margin: 0.25em;
-}
-
-#creditcards {
-    margin: 0 auto;
-    width: 40%;
-    min-width: 23em;
-}
-
-#creditcards footer {
-    justify-content: flex-end;
-}    header {
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-        gap: 1em;
-        margin: 0.5em auto 1em auto;
-        width: fit-content;
-    }
-
-    header > h1 {
-        display: inline-flex;
-        height: fit-content;
-        width: fit-content;
-        background-color: var(--background-button);
-        color: var(--background-blue);
-        box-shadow: 0em 0.875em 1.75em rgba(0, 0, 0, 0.25),
-        0 0.625em 0.625em rgba(0, 0, 0, 0.28);
-        font-size: var(--step-2);
-        margin-left: 0.25em;
-        padding-right: 0.5em; /* 0.5em .5em 0 .75em; */
-        overflow: hidden;
-    }
-
-    header > h1::before {
-        content: "";
-        box-sizing: content-box;
-        display: inline;
-        padding: 0 0.75em;
-        color: var(--color-black);
-        background: transparent var(--logo) left/1em auto no-repeat;
-        opacity: 1;
-        position: relative;
-    }
+                --x: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e");
+                --logo: url("%sveltekit.assets%/android-chrome-512x512.png");
+                --background-blue: #00365f;
+                --background-black: #5a5a5a;
+                --background-button: #cccccc;
+                --background-button-primary: #0d63fd;
+                --background-button-secondary: #6c757d;
+                --background-secondary: #f9f9fb;
+                --background-white: #ffffff;
+                --border-hairline: 0.0625em solid #0004;
+                --borderRadius-outer: 0.5em;
+                --boxBorder: 0.05em solid var(--color-link-active);
+                --color-black: #212529;
+                --color-border-primary: #cdcdcd;
+                --color-link-active: #3378ac;
+                --color-link-hover: #c00;
+                --color-modal-fader: #b3b3b3cc;
+                --color-white: #ffffff;
+                --color-table-stripe: rgb(222, 226, 230);
+                --font-serif: "Times New Roman", Times, serif;
+                /* --font-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+                'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+                sans-serif; */
+                --font-sans-serif: sans-serif;
+                --pad: clamp(0.5em, min(2vw, 4vh), 4em);
+                --shadow-chrome: 0 0.25em 1em 0.25em #0003;
+                --page-width: 95%;
+
+                /* @link https://utopia.fyi/type/calculator?c=416,16,1.067,1920,24,1.067,6,10,900-1200-1800-600&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+                --step--10: clamp(0.52rem, calc(0.45rem + 0.28vw), 0.78rem);
+                --step--9: clamp(0.56rem, calc(0.48rem + 0.3vw), 0.84rem);
+                --step--8: clamp(0.6rem, calc(0.51rem + 0.32vw), 0.89rem);
+                --step--7: clamp(0.64rem, calc(0.55rem + 0.34vw), 0.95rem);
+                --step--6: clamp(0.68rem, calc(0.58rem + 0.36vw), 1.02rem);
+                --step--5: clamp(0.72rem, calc(0.62rem + 0.38vw), 1.08rem);
+                --step--4: clamp(0.77rem, calc(0.66rem + 0.41vw), 1.16rem);
+                --step--3: clamp(0.82rem, calc(0.71rem + 0.44vw), 1.24rem);
+                --step--2: clamp(0.88rem, calc(0.76rem + 0.47vw), 1.32rem);
+                --step--1: clamp(0.94rem, calc(0.81rem + 0.5vw), 1.41rem);
+                --step-0: clamp(1rem, calc(0.86rem + 0.53vw), 1.5rem);
+                --step-1: clamp(1.07rem, calc(0.92rem + 0.57vw), 1.6rem);
+                --step-2: clamp(1.14rem, calc(0.98rem + 0.61vw), 1.71rem);
+                --step-3: clamp(1.22rem, calc(1.05rem + 0.65vw), 1.82rem);
+                --step-4: clamp(1.3rem, calc(1.12rem + 0.69vw), 1.94rem);
+                --step-5: clamp(1.38rem, calc(1.19rem + 0.74vw), 2.07rem);
+                --step-6: clamp(1.48rem, calc(1.27rem + 0.79vw), 2.21rem);
+            }
+
+            /*---------------------
+                    RESETS
+            ---------------------*/
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            img,
+            fieldset,
+            object {
+                border: none;
+            }
+
+            img,
+            picture,
+            video,
+            canvas,
+            svg {
+                display: block;
+                max-width: 100%;
+            }
+
+            input,
+            button,
+            textarea,
+            select {
+                font: inherit;
+            }
+
+            ul {
+                list-style-type: none;
+            }
+
+            button,
+            label {
+                cursor: pointer;
+            }
+            html,
+            body {
+                font-family: sans-serif;
+            }
+
+            body {
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+                isolation: isolate;
+                line-height: 1.5;
+            }
+
+            p,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                overflow-wrap: break-word;
+            }
+            /*---------------------
+                    AT RULES
+            ---------------------*/
+
+            /* phone only 599px */
+            @media screen and (max-width: 37.4375em) {
+            }
+            /* tablet portrait up 600px */
+            @media screen and (min-width: 37.5em) {
+            }
+            /* table landscape up 900px */
+            @media screen and (min-width: 56.25em) {
+            }
+            /* desktop up 1200px */
+            @media screen and (min-width: 75em) {
+            }
+            /* big desktop up 1800px */
+            @media screen and (min-with: 112.5em) {
+            }
+            /*--------------------------------------
+                    SELECTORS
+            ---------------------------------------*/
+
+            a p {
+                text-align: center;
+            }
+
+            a,
+            li,
+            p,
+            td {
+                font-family: var(--font-sans-serif);
+                font-size: var(--step-0);
+                font-stretch: normal;
+                margin-top: 0;
+            }
+
+            body {
+                background-color: var(--background-white);
+                display: block;
+                font-family: var(--font-sans-serif);
+                margin: auto;
+                z-index: 1;
+            }
+
+            .divider {
+                border-top: 0.0625em solid var(--color-link-active);
+                color: var(--background-black);
+                display: block;
+                height: 0;
+                margin: 0 auto;
+                opacity: 1;
+                overflow-x: hidden;
+                text-align: center;
+                width: 100%;
+            }
+
+
+
+            button,
+            a[type="button"] {
+                appearance: none;
+                background-color: var(--background-button);
+                border: 0.05em solid var(--background-button);
+                border-radius: 0.5em;
+                color: var(--color-black);
+                cursor: pointer;
+                display: inline-block;
+                font-family: var(--font-sans-serif);
+                font-size: var(--step-0);
+                font-stretch: initial;
+                font-weight: 600;
+                height: fit-content;
+                padding: 0 0.25em;
+                text-align: center;
+                text-decoration: none;
+                -webkit-appearance: none;
+            }
+
+            button {
+                width: fit-content;
+            }
+            button:hover,
+            a[type="button"]:hover {
+                appearance: none;
+                background-color: var(--background-white);
+                border-radius: 0.5em;
+                color: var(--color-link-hover);
+                -webkit-appearance: none;
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5em;
+                margin: 0 auto;
+                width: fit-content;
+            }
+
+            .buttons-stacked {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .not-stacked {
+                margin: 0.5em auto;
+            }
+
+            .stacked {
+                margin: 0.25em auto 0.5em auto;
+            }
+
+
+
+            .add-edit section > header > h2 {
+                font-size: var(--step-0);
+                font-weight: 700;
+                margin-left: 0.5em;
+            }
+
+            .add-edit section > form {
+                display: flex;
+                max-width: 100%;
+            }
+            .add-edit section > form > fieldset {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                text-align: left;
+                max-width: 100%;
+            }
+
+            .add-edit section > form > fieldset label {
+                font-size: var(--step-0);
+            }
+
+            .add-edit section > form > fieldset > select {
+                font-size: var(--step-0);
+                margin: 0 auto;
+                width: 100%;
+            }
+
+            label > input[type="text"],
+            label > input[type="email"],
+            label > input[type="password"] {
+                margin-left: 0.5em;
+            }
+
+            .add-edit section > form > fieldset > label > input[type="number"] {
+                margin-top: 0.5em;
+            }
+
+            .add-edit section > form > fieldset > article {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5em;
+            }
+
+            .add-edit > section > form {
+                margin: 0 auto;
+                width: fit-content;
+            }
+
+            .add-edit footer {
+                display: flex;
+                flex-wrap: wrap;
+                flex-shrink: 0;
+                align-items: center;
+                justify-content: flex-end;
+                padding: 0.75em;
+            }
+
+            .add-edit section > form > fieldset > footer button,
+            :is(.add-edit, #itinerary-details) section > footer button {
+                align-items: flex-start;
+                display: inline-block;
+                margin: 0.25em;
+                position: relative;
+            }
+
+            :is(.add-edit, #itinerary-details) section > footer a,
+            :is(.add-edit, #itinerary-details)
+                section
+                > footer
+                > button:first-child {
+                color: var(--color-white);
+                background-color: var(--background-button-secondary);
+                border-color: var(--background-button-secondary);
+            }
+
+            :is(.add-edit, #itinerary-details)
+                section
+                > footer
+                > button:last-child {
+                color: var(--color-white);
+                background-color: var(--background-button-primary);
+                border-color: var(--background-button-primary);
+            }
+            a > svg {
+                background-color: var(--background-button);
+                min-height: 1.5em;
+                min-width: 1.5em;
+            }
+
+            .add-edit {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                margin: 0 auto;
+                width: fit-content;
+            }
+
+            .add-edit > section > div {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .add-edit > section > footer > button:first-child {
+                color: var(--color-white);
+                background-color: var(--background-button-secondary);
+                border-color: var(--background-button-secondary);
+            }
+
+            .add-edit > section > footer > button:last-child {
+                color: var(--color-white);
+                background-color: var(--background-button-primary);
+                border-color: var(--background-button-primary);
+            }
+            details {
+                display: flex;
+                flex-direction: column;
+                font-weight: normal;
+                background-color: var(--background-white);
+                position: relative;
+                text-align: left;
+                width: 100%;
+            }
+            details table {
+                display: block;
+                margin: 0 auto;
+                table-layout: fixed;
+                width: 95%;
+            }
+
+            details th {
+                font-size: var(--step--1);
+                font-weight: normal;
+                text-align: right;
+                padding-right: 0.5em;
+                vertical-align: top;
+            }
+
+            details td {
+                font-size: var(--step--1);
+                font-weight: 700;
+                overflow: wrap;
+                padding-right: 0.5em;
+                text-align: left;
+                vertical-align: top;
+                word-break: break-all;
+            }
+
+            details > summary {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                height: fit-content;
+                width: 100%;
+                padding: 0.25em 0.75em;
+                font-size: var(--step-0);
+                font-weight: normal;
+                color: #212529;
+                text-align: left;
+                background-color: #fff;
+                border: 0;
+                border-radius: 0;
+                overflow-anchor: none;
+                transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+                border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+                border-radius 0.15s ease;
+            }
+
+            details > summary::-webkit-details-marker {
+                display: none;
+            }
+            details > summary::after {
+                width: 1.25em;
+                height: 1.25em;
+                content: "";
+                margin-left: auto;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+                background-repeat: no-repeat;
+                background-size: 1.25em;
+                transition: transform 0.2s ease-in-out;
+            }
+            details[open] > summary:after {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+                transform: rotate(-180deg);
+            }
+            details[open] > summary {
+                color: #0c63e4;
+                background-color: #e7f1ff;
+                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
+            }
+            details > summary:hover {
+                z-index: 2;
+            }
+
+            details > footer {
+                display: flex;
+                flex-direction: row;
+                gap: 1em;
+                justify-content: flex-end;
+                border-top: 1px solid #dee2e6;
+                border-bottom-right-radius: calc(0.3em - 1px);
+                border-bottom-left-radius: calc(0.3em - 1px);
+                border-radius: 0;
+            }
+
+            details button:last-of-type {
+                color: var(--color-white);
+                background-color: var(--background-button-primary);
+                border-color: var(--background-button-primary);
+            }
+
+            details > footer > * {
+                margin: 0.25em;
+            }
+
+            #creditcards {
+                margin: 0 auto;
+                width: 40%;
+                min-width: 23em;
+            }
+
+            #creditcards footer {
+                justify-content: flex-end;
+            }    
 		</style>
 		
 		%sveltekit.head%
